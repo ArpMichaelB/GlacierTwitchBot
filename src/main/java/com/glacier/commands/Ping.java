@@ -20,7 +20,7 @@ public class Ping extends Command {
 	public void executeCommand(ChannelMessageEvent messageEvent)
 	{
 		super.executeCommand(messageEvent);
-		String response = "Hi there! I work!";
+		String response = "Hi there! " + messageEvent.getUser().getDisplayName() + " I work!";
 		sendMessageToChannel(messageEvent.getChannel().getName(),response);
 		//huh, this twitch api works really similarly to the discord api I use
 		//that's a good
