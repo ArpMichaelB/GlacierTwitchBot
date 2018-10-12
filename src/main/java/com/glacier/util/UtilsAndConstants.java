@@ -11,7 +11,10 @@ import java.util.Properties;
 public class UtilsAndConstants {
 	
 	private static final String PROPERTIES_FILENAME = "twitchbot.properties";
+	public static final int BEFORE_HOURS = 10;
+	public static final int AFTER_SECONDS = 19;
 	public static Properties properties = setupProperties();
+	public static String prefix = "~";
 	
 	private static Properties setupProperties()
 	{

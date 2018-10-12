@@ -1,5 +1,7 @@
 package com.glacier.commands;
 
+import com.glacier.util.UtilsAndConstants;
+
 import me.philippheuer.twitch4j.events.event.irc.ChannelMessageEvent;
 import me.philippheuer.twitch4j.message.commands.Command;
 import me.philippheuer.twitch4j.message.commands.CommandPermission;
@@ -8,9 +10,10 @@ public class Ping extends Command {
 	
 	public Ping()
 	{
-		setCommand("ping");
-        setCommandAliases(new String[]{"shout", "sayhello","hello"});
-        setCategory("general");
+		setRequiresCommandTrigger(false);
+		setCommand(UtilsAndConstants.prefix+"ping");
+		setCommandAliases(new String[]{UtilsAndConstants.prefix+"shout", UtilsAndConstants.prefix+"sayhello",UtilsAndConstants.prefix+"hello"});
+		setCategory("general");
         setDescription("Displays a greeting message, to test the bot.");
         getRequiredPermissions().add(CommandPermission.EVERYONE);
         setUsageExample("");
