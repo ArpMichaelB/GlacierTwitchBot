@@ -3,6 +3,7 @@ package com.glacier.bot;
 import java.io.File;
 
 import com.glacier.commands.Ping;
+import com.glacier.commands.Uptime;
 import com.glacier.util.UtilsAndConstants;
 
 import me.philippheuer.twitch4j.TwitchClient;
@@ -29,6 +30,7 @@ public class Robot {
 	public void registerCommands() 
 	{
 		twitchClient.getCommandHandler().registerCommand(Ping.class);
+		twitchClient.getCommandHandler().registerCommand(Uptime.class);
 	}
 	
 	public void registerEvents()

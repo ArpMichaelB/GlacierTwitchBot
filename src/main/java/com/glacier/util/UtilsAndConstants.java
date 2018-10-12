@@ -32,5 +32,18 @@ public class UtilsAndConstants {
 	public static String getCurrentTimestamp() {
 		return DateTimeFormatter.ofPattern("MM/dd/yyyy HH:mm:ss").format(LocalDateTime.now());
 	}
+
+	public static String formatMilliseconds(long millis) {
+		long seconds = millis/1000;
+		long minutes = seconds/60;
+		long hours = minutes/60;
+		seconds = seconds%60;
+		minutes = minutes%60;
+		String ret = "We've been live for roughly: ";
+		ret += hours+" hours, ";
+		ret += minutes+" minutes, and ";
+		ret += seconds+" seconds.";
+		return ret;
+	}
 	
 }

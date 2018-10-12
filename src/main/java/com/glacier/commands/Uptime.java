@@ -1,17 +1,20 @@
 package com.glacier.commands;
 
+import java.util.Date;
+
+import com.glacier.util.UtilsAndConstants;
+
 import me.philippheuer.twitch4j.events.event.irc.ChannelMessageEvent;
 import me.philippheuer.twitch4j.message.commands.Command;
 import me.philippheuer.twitch4j.message.commands.CommandPermission;
 
-public class Ping extends Command {
-	
-	public Ping()
+public class Uptime extends Command {
+	public Uptime()
 	{
-		setCommand("ping");
-        setCommandAliases(new String[]{"shout", "sayhello","hello"});
+		setCommand("uptime");
+        setCommandAliases(new String[]{"howlong", "length","streamlength"});
         setCategory("general");
-        setDescription("Displays a greeting message, to test the bot.");
+        setDescription("Just how long have we been streaming?");
         getRequiredPermissions().add(CommandPermission.EVERYONE);
         setUsageExample("");
 	}
@@ -20,10 +23,10 @@ public class Ping extends Command {
 	public void executeCommand(ChannelMessageEvent messageEvent)
 	{
 		super.executeCommand(messageEvent);
-		String response = "Hi there! " + messageEvent.getUser().getDisplayName();
+		Date startDate = messageEvent.getChannel().getUpdatedAt();
+		Date now = new Date();
+		long howLong = now.getTime()-startDate.getTime();
+		String response = UtilsAndConstants.formatMilliseconds(howLong);
 		sendMessageToChannel(messageEvent.getChannel().getName(),response);
-		//huh, this twitch api works really similarly to the discord api I use
-		//that's a good
 	}
-	
 }
