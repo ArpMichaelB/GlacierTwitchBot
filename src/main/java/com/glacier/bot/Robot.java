@@ -42,7 +42,9 @@ public class Robot {
 		twitchClient.getCommandHandler().registerCommand(clearMessage.class);
 		twitchClient.getCommandHandler().registerCommand(DiscordAnnouncement.class);
 		twitchClient.getCommandHandler().registerCommand(CodesAndPromos.class);
-		twitchClient.getCommandHandler().registerCommand(setGame.class);
+		//twitchClient.getCommandHandler().registerCommand(setGame.class);
+		//turns out that the api I'm using doesn't have a way to set game/title despite the official api actually having it
+		//in the same way that you can check uptime normally but not via this
 		//the setstart command really shouldnt have to exist but I can't find a way to track uptime in this api
 		//so instead I'm having the start time manually get set by changing the last updated at
 		//besides it's best to have a manual start time anyway since then I can cut out the "setup" time 
