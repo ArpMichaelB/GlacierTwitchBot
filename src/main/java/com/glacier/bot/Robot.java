@@ -2,6 +2,7 @@ package com.glacier.bot;
 
 import java.io.File;
 
+import com.glacier.commands.Gutenberg;
 import com.glacier.commands.Ping;
 import com.glacier.commands.Uptime;
 import com.glacier.commands.setStart;
@@ -33,6 +34,7 @@ public class Robot {
 		twitchClient.getCommandHandler().registerCommand(Ping.class);
 		twitchClient.getCommandHandler().registerCommand(Uptime.class);
 		twitchClient.getCommandHandler().registerCommand(setStart.class);
+		twitchClient.getCommandHandler().registerCommand(Gutenberg.class);
 		//the setstart command really shouldnt have to exist but I can't find a way to track uptime in this api
 		//so instead I'm having the start time manually get set by changing the last updated at
 		//besides it's best to have a manual start time anyway since then I can cut out the "setup" time 
