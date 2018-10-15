@@ -38,6 +38,7 @@ public class Robot {
 		//besides it's best to have a manual start time anyway since then I can cut out the "setup" time 
 		//so the timestamps are closer to the stream VODs
 		//TODO: implement my custom nightbot commands
+		//TODO: implement prefix changing
 	}
 	
 	public void registerEvents()
@@ -49,6 +50,16 @@ public class Robot {
 	{
 		//TODO: find a way to embed a string array into the properties file, so this can join more than one channel
 		twitchClient.getMessageInterface().joinChannel(UtilsAndConstants.properties.getProperty("twitch.channel"));
+		/*
+	 	for(int i = 0; (value = YOUR_PROPERTY_OBJECT.getProperty("twitch.channel." + i)) != null; i++) 
+	 	{
+    		result.add(value);
+	 	}
+    	   and then have a command that's stream-owner only that'll write another property twitch.channel.x
+    	   (where x is the current max channels+1)
+    	   to the file 
+    	   fair attribution, I got the idea for the loop code from stackoverflow. Thanks somtomas, you saved me from learning config files
+		 */
 	}
 
 }
