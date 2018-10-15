@@ -11,7 +11,10 @@ import java.util.Properties;
 public class UtilsAndConstants {
 	
 	private static final String PROPERTIES_FILENAME = "twitchbot.properties";
+	public static final int BEFORE_HOURS = 10;
+	public static final int AFTER_SECONDS = 19;
 	public static Properties properties = setupProperties();
+	public static String prefix = "~";
 	
 	private static Properties setupProperties()
 	{
@@ -31,6 +34,19 @@ public class UtilsAndConstants {
 
 	public static String getCurrentTimestamp() {
 		return DateTimeFormatter.ofPattern("MM/dd/yyyy HH:mm:ss").format(LocalDateTime.now());
+	}
+
+	public static String formatMilliseconds(long millis) {
+		long seconds = millis/1000;
+		long minutes = seconds/60;
+		long hours = minutes/60;
+		seconds = seconds%60;
+		minutes = minutes%60;
+		String ret = "We've been live for roughly: ";
+		ret += hours+" hours, ";
+		ret += minutes+" minutes, and ";
+		ret += seconds+" seconds.";
+		return ret;
 	}
 	
 }
