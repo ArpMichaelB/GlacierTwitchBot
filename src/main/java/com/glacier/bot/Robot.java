@@ -45,7 +45,6 @@ public class Robot {
 		//so instead I'm having the start time manually get set by changing the last updated at
 		//besides it's best to have a manual start time anyway since then I can cut out the "setup" time 
 		//so the timestamps are closer to the stream VODs
-		//TODO: implement my custom nightbot commands
 		//TODO: implement prefix changing
 	}
 	
